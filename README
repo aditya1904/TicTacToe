@@ -1,0 +1,21 @@
+This is my second game.
+TicTacToe
+The game is implemented in python2.
+The file twoplayer.py is Human vs Human.
+The file vscomp.py is comp vs human game.
+The computer never loses.
+I still haven't implemented a function to check a draw.(That will be done soon.)
+There is no GUI.(That will also be implemented real soon.)
+For now the user will have to enter the position of the block he wants to put his variable into. The boxes are numbered as shown...
+
+		0 | 1 | 2
+		----------
+		3 | 4 | 5
+		----------
+		6 | 7 | 8
+
+Also by default, the first player is X and the second one is O.
+With Computer, the user plays first ( user is X ).
+
+I know, this not a perfect game. I am still working on it.
+
