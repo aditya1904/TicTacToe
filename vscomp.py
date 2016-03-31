@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
-winning_positions = ([0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6])
+winning_positions = ([0,4,8],[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8],[2,4,6])
 global board
 board = [' ']* 9 
 global available_positions
 available_positions = [0,1,2,3,4,5,6,7,8]
 global priority_positions
-priority_positions = [0,2,4,6,8]
+priority_positions = [4,1,3,5,7]
 
 class Player:
 	def __init__(self, Variable):
@@ -32,27 +32,41 @@ def Update_Scoredict():
 def play_Computer():
 	for i in range(len(scoresdict)):
 		if scoresdict[i][1] == 2:
+			print 'Selected COmbo',scoresdict[i][0]
+			print 'Score', scoresdict[i][1]
 			pos_avail = find_pos(scoresdict[i][0])
+			print 'returned position', pos_avail
 			return pos_avail
 	for i in range(len(scoresdict)):
 		if scoresdict[i][1] == -2:
+			print 'Selected COmbo',scoresdict[i][0]
+			print 'Score', scoresdict[i][1]
 			pos_avail = find_pos(scoresdict[i][0])
+			print 'returned position', pos_avail
 			return pos_avail
 	for i in range(len(scoresdict)):
 		if scoresdict[i][1] == 1:
+			print 'Selected COmbo',scoresdict[i][0]
+			print 'Score', scoresdict[i][1]
 			pos_avail = find_pos(scoresdict[i][0])
+			print 'returned position', pos_avail
 			return pos_avail
 	for i in range(len(scoresdict)):
 		if scoresdict[i][1] == -1:
+			print 'Selected COmbo',scoresdict[i][0]
+			print 'Score', scoresdict[i][1]
 			pos_avail = find_pos(scoresdict[i][0])
+			print 'returned position', pos_avail
 			return pos_avail
 	
 	
 def find_pos(templist):
 	temp = [x for x in available_positions if x in templist]
+	print 'Available Positions', temp
 	if len(temp) == 1:
 		return temp[0]
 	temp2 = [x for x in priority_positions if x in temp]
+	print 'Available from priority', temp2
 	if len(temp2) == 0:
 		return temp[0]
 	else:
@@ -95,6 +109,8 @@ def main():
 		available_positions.remove(player_chose_position)
 		user.myturn(player_chose_position)
 		Update_Scores(player_var, player_chose_position)
+#		Update_Scoredict()
+		print scoresdict
 		display()
 		if Check_Win(player_var):
 			print "\t\t\t YOU WIN !!!!"
@@ -105,6 +121,8 @@ def main():
 		board[comp_chose_position] = comp_var
 		available_positions.remove(comp_chose_position)
 		Update_Scores(comp_var, comp_chose_position)
+#		Update_Scoredict()
+		print scoresdict
 		display()
 		if Check_Win(comp_var):
 			print "\t\t\t COMPUTER WINS...."
