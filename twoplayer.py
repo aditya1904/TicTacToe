@@ -6,8 +6,8 @@ board = [' ']* 9
 class Player:
 	def __init__(self, Variable):
 		self.variable = Variable
-	def myturn(self, x_ord , y_ord):
-		board[ 3*x_ord + y_ord ] = self.variable
+	def myturn(self, x_ord ):
+		board[ x_ord ] = self.variable
 
 def Check_Win(variable):
 	win = False
@@ -31,13 +31,13 @@ def main():
 		Player1 = Player('X')
 		Player2 = Player('O')
 		print "Player 1 turn..."
-		Player1.myturn(int(raw_input()),int(raw_input()))
+		Player1.myturn(int(raw_input())
 		display()
 		if Check_Win(Player1.variable):
 			print 'Player 1 wins'
 			break
 		print "Player 2 turn..."
-		Player2.myturn(int(raw_input()),int(raw_input()))
+		Player2.myturn(int(raw_input())
 		display()
 		if Check_Win(Player2.variable):
 			print 'Player  2 wins'
