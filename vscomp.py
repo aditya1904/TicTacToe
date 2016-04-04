@@ -130,7 +130,10 @@ def main():
 			break
 	##Computer Plays##
 		print "My turn...Thinking..."
-		comp_chose_position = play_Computer()
+		if player_chose_position == 4 and len(available_positions)==8:
+			comp_chose_position = 0
+		else:
+			comp_chose_position = play_Computer()
 		board[comp_chose_position] = comp_var
 		available_positions.remove(comp_chose_position)
 		Update_Scores(comp_var, comp_chose_position)
